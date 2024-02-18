@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="cn.leafpeach.liteapp.gui.SettingsDialog">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="48" y="54" width="654" height="586"/>
+    </constraints>
+    <properties>
+      <background color="-16777216"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="cb36" binding="tabbedPane1" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="f9b47" layout-manager="GridLayoutManager" row-count="15" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="全局"/>
+            </constraints>
+            <properties>
+              <background color="-16777216"/>
+              <foreground color="-16777216"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="34f5e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="16"/>
+                  <foreground color="-1"/>
+                  <text value="-----用户所在地经纬度设置-----"/>
+                </properties>
+              </component>
+              <hspacer id="10036">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <vspacer id="f9f50">
+                <constraints>
+                  <grid row="2" column="3" row-span="8" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="fe522" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="209" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="16"/>
+                  <foreground color="-1"/>
+                  <text value="-----预警音效试听-----"/>
+                </properties>
+              </component>
+              <component id="6f6e5" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="112" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="14"/>
+                  <foreground color="-1"/>
+                  <text value="地震预警发布时"/>
+                </properties>
+              </component>
+              <component id="2a983" class="javax.swing.JButton" binding="buttonTestEEWSFX">
+                <constraints>
+                  <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei"/>
+                  <text value="试听"/>
+                </properties>
+              </component>
+              <grid id="94766" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="5" vsize-policy="1" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16777216"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <hspacer id="98af6">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
+                  <grid id="9538f" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-16777216"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="e7465" class="javax.swing.JButton" binding="buttonOK">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei"/>
+                          <text value="确定"/>
+                        </properties>
+                      </component>
+                      <component id="5723f" class="javax.swing.JButton" binding="buttonCancel">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei"/>
+                          <text value="取消"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <component id="4667f" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Microsoft YaHei" size="14"/>
+                      <foreground color="-1"/>
+                      <text value="烈度"/>
+                    </properties>
+                  </component>
+                  <component id="82097" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="209" height="17"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Microsoft YaHei"/>
+                      <foreground color="-1"/>
+                      <text value="注：当本地预估烈度达到以下所设阈值及以上时都会预警"/>
+                    </properties>
+                  </component>
+                  <component id="d376d" class="javax.swing.JComboBox" binding="comboWarningIntensity">
+                    <constraints>
+                      <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Microsoft YaHei"/>
+                      <model>
+                        <item value="不设置"/>
+                        <item value="2度"/>
+                        <item value="3度"/>
+                        <item value="4度"/>
+                      </model>
+                    </properties>
+                  </component>
+                  <component id="404fa" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="209" height="17"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Microsoft YaHei" size="16"/>
+                      <foreground color="-1"/>
+                      <text value="-----其他设置-----"/>
+                    </properties>
+                  </component>
+                  <component id="21ac8" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Microsoft YaHei" size="14"/>
+                      <foreground color="-1"/>
+                      <text value="系统通知(更改后需重启生效)"/>
+                    </properties>
+                  </component>
+                  <component id="f0897" class="javax.swing.JComboBox" binding="comboTips">
+                    <constraints>
+                      <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Microsoft YaHei"/>
+                      <model>
+                        <item value="开"/>
+                        <item value="关"/>
+                      </model>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="9a0da" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="112" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="14"/>
+                  <foreground color="-1"/>
+                  <text value="纬度"/>
+                </properties>
+              </component>
+              <component id="8cd9f" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="2" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="112" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="14"/>
+                  <foreground color="-1"/>
+                  <text value="经度"/>
+                </properties>
+              </component>
+              <component id="9b666" class="javax.swing.JTextField" binding="editLongitude">
+                <constraints>
+                  <grid row="4" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei"/>
+                </properties>
+              </component>
+              <component id="4dc04" class="javax.swing.JTextField" binding="editLatitude">
+                <constraints>
+                  <grid row="1" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="d5731" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="112" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="14"/>
+                  <foreground color="-1"/>
+                  <text value="地震横波抵达时"/>
+                </properties>
+              </component>
+              <component id="dee05" class="javax.swing.JButton" binding="buttonTestSWAVESFX">
+                <constraints>
+                  <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei"/>
+                  <text value="试听"/>
+                </properties>
+              </component>
+              <component id="d5f5b" class="javax.swing.JButton" binding="buttonNew">
+                <constraints>
+                  <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei"/>
+                  <text value="试听"/>
+                </properties>
+              </component>
+              <component id="11ff1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="13" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="209" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="16"/>
+                  <foreground color="-1"/>
+                  <text value="-----预警烈度阈值设置-----"/>
+                </properties>
+              </component>
+              <component id="3d8e4" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="12" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="112" height="17"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="Microsoft YaHei" size="14"/>
+                  <foreground color="-1"/>
+                  <text value="地震信息更新时"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>
