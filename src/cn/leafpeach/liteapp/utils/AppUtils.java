@@ -21,17 +21,18 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 public class AppUtils {
-    static String CencUrl = "https://api.wolfx.jp/cenc_eqlist.json";
-    static String TimeUrl = "http://api.leafpeach.cn/data/sync_server_time.json";
-    public static String IclUrl = "http://api.leafpeach.cn/data/icl/data.json";
-    public static String CencUrl1 = "http://api.leafpeach.cn/data/cenc/data.json";
-    public static String RD3C0Url = "http://api.leafpeach.cn/data/lpnet/RD3C0.json";
-    public static String RED68Url = "https://api.wolfx.jp/bb_seis.json";
-    public static String JmaEEWUrl = "https://api.wolfx.jp/jma_eew.json";
-    public static String scUrl = "https://api.wolfx.jp/sc_eew.json";
-    public static String fjUrl = "https://api.wolfx.jp/fj_eew.json";
-    static String JmaUrl = "https://api.wolfx.jp/jma_eqlist.json";
-    static String versionUrl = "http://api.leafpeach.cn/data/quakecn/version.json";
+    // 程序用到的api地址已隐藏
+    static String CencUrl = "";
+    static String TimeUrl = "";
+    public static String IclUrl = "";
+    public static String CencUrl1 = "";
+    public static String RD3C0Url = "";
+    public static String RED68Url = "";
+    public static String JmaEEWUrl = "";
+    public static String scUrl = "";
+    public static String fjUrl = "";
+    static String JmaUrl = "";
+    static String versionUrl = "";
     public static File startFile = new File("Files\\start.json");
     public static File tipsFile = new File("Files\\tips.json");
     public static File scFile = new File("Files\\sc.json");
@@ -83,7 +84,7 @@ public class AppUtils {
         double userLat = Double.parseDouble(getUserLat());
         double userlng = Double.parseDouble(getUserLng());
         String distance = decimalFormat.format(DistanceUtil.getDistance(userlng, userLat, epicenterLng, epicenterLat));
-        double local = 0.92 + 1.63 * json.getDouble("magnitude") - 3.49 * Math.log10(Double.parseDouble(distance));
+        double local = 1.92 + 1.63 * json.getDouble("magnitude") - 3.49 * Math.log10(Double.parseDouble(distance));
         String feel = "";
         if (local < 1) {
             feel = "当前位置无震感";
