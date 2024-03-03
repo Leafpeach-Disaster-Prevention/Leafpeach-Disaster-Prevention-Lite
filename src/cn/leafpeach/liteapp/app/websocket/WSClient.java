@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSONObject;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 
@@ -33,7 +32,7 @@ public class WSClient extends WebSocketClient {
             if (jsonObject.getString("type").equals("cenc_eqlist")) {
                 System.out.println("[WebSocket][" + AppUtils.getTime() + "] 数据更新!");
                 try {
-                    fileWriterMethod("Files\\data\\cenc.json", s);
+                    AppUtils.fileWriterMethod("Files\\data\\cenc.json", s);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -41,7 +40,7 @@ public class WSClient extends WebSocketClient {
             if (jsonObject.getString("type").equals("jma_eqlist")) {
                 System.out.println("[WebSocket][" + AppUtils.getTime() + "] 数据更新!");
                 try {
-                    fileWriterMethod("Files\\data\\jma.json", s);
+                    AppUtils.fileWriterMethod("Files\\data\\jma.json", s);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -49,7 +48,7 @@ public class WSClient extends WebSocketClient {
             if (jsonObject.getString("type").equals("jma_eew")) {
                 System.out.println("[WebSocket][" + AppUtils.getTime() + "] 数据更新!");
                 try {
-                    fileWriterMethod("Files\\data\\jma_eew.json", s);
+                    AppUtils.fileWriterMethod("Files\\data\\jma_eew.json", s);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -57,7 +56,7 @@ public class WSClient extends WebSocketClient {
             if (jsonObject.getString("type").equals("sc_eew")) {
                 System.out.println("[WebSocket][" + AppUtils.getTime() + "] 数据更新!");
                 try {
-                    fileWriterMethod("Files\\data\\sceew.json", s);
+                    AppUtils.fileWriterMethod("Files\\data\\sceew.json", s);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -65,7 +64,7 @@ public class WSClient extends WebSocketClient {
             if (jsonObject.getString("type").equals("fj_eew")) {
                 System.out.println("[WebSocket][" + AppUtils.getTime() + "] 数据更新!");
                 try {
-                    fileWriterMethod("Files\\data\\fjeew.json", s);
+                    AppUtils.fileWriterMethod("Files\\data\\fjeew.json", s);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -73,23 +72,17 @@ public class WSClient extends WebSocketClient {
         }
     }
 
-    public static void fileWriterMethod(String path,String content) throws IOException {
-        try (FileWriter fileWriter = new FileWriter(path)) {
-            fileWriter.append(content);
-        }
-    }
-
     //连接关闭时调用该方法
     @Override
     public void onClose(int i, String s, boolean b) {
         System.out.println("[WebSocket]连接已关闭!");
-        WebSocketTask.start();
+        Connection.connect();
     }
 
     //出现错误时调用该方法
     @Override
     public void onError(Exception e) {
-        System.out.println("[WebSocket]连接出现错误!");
+        System.out.println("[WebSocket]连接出现错误!" + e);
     }
 
     //获取接收到的信息

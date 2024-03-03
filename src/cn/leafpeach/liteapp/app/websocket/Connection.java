@@ -6,7 +6,7 @@ import java.net.URI;
 
 public class Connection {
     public static WSClient client;
-    public static IclClient iclClient;
+    public static LPClient lpClient;
 
     public static void connect() {
         try {
@@ -25,12 +25,12 @@ public class Connection {
 
     public static void IclConnect() {
         try {
-            iclClient = new IclClient(new URI(""));
-            iclClient.connect();
-            while (!iclClient.getReadyState().equals(WebSocket.READYSTATE.OPEN)) {
+            lpClient = new LPClient(new URI("ws://49.232.181.118:49133"));
+            lpClient.connect();
+            while (!lpClient.getReadyState().equals(WebSocket.READYSTATE.OPEN)) {
                 Thread.sleep(1000);
             }
-            while (IclClient.getExcptMessage() == null) {
+            while (LPClient.getExcptMessage() == null) {
                 Thread.sleep(1000);
             }
         } catch (Exception e) {
