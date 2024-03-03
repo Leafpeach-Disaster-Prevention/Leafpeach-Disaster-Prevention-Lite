@@ -22,7 +22,7 @@ public class QCMain {
     public static QCMainWindow qcMainWindow;
 
     // 定义程序版本
-    public static String version = "2.0.4";
+    public static String version = "2.0.6";
 
     // 程序主类
     public static void main(String[] args) throws IOException {
