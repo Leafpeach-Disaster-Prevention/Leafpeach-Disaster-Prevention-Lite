@@ -2,6 +2,8 @@ package cn.leafpeach.liteapp.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 
 public class EQWarningWindow extends JFrame {
@@ -44,6 +46,7 @@ public class EQWarningWindow extends JFrame {
         setAlwaysOnTop(true);
         jPanel.setBackground(new Color(19, 15, 15));
         jPanel.setLayout(null);
+        jPanel.updateUI();
         jLabel = new JLabel();
         jLabel.setSize(500,40);
         jLabel.setForeground(Color.white);
@@ -95,5 +98,18 @@ public class EQWarningWindow extends JFrame {
         jPanel.add(jLabel4);
         jPanel.add(jLabel5);
         jPanel.add(jLabel6);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                jPanel.remove(jLabel);
+                jPanel.remove(jLabel1);
+                jPanel.remove(jLabel2);
+                jPanel.remove(jLabel3);
+                jPanel.remove(jLabel4);
+                jPanel.remove(jLabel5);
+                jPanel.remove(jLabel6);
+            }
+        });
     }
 }

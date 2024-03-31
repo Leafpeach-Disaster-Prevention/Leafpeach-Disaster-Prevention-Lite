@@ -2,7 +2,7 @@ package cn.leafpeach.liteapp.gui.lists;
 
 import cn.leafpeach.liteapp.gui.QCMainWindow;
 import cn.leafpeach.liteapp.utils.AppUtils;
-import cn.leafpeach.liteapp.utils.HttpUtils;
+import cn.leafpeach.liteapp.utils.DistanceUtil;
 import cn.leafpeach.liteapp.utils.SoundUtil;
 import cn.leafpeach.liteapp.app.AppTray;
 import com.alibaba.fastjson.JSON;
@@ -23,6 +23,7 @@ public class CencList {
     static String id = null;
     static Icon image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,image11,image12;
     static File file = new File("Files\\data\\cenc.json");
+    static File file1 = new File("Files\\data\\cenc_1.json");
 
     static {
         try {
@@ -49,12 +50,13 @@ public class CencList {
             @Override
             public void run() {
                 String httpGet;
+                String httpGet1;
                 try {
                     httpGet = FileUtils.readFileToString(file);
+                    httpGet1 = FileUtils.readFileToString(file1);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                String httpGet1 = HttpUtils.sendGet(AppUtils.CencUrl1);
                 JSONObject jsonObject = JSON.parseObject(httpGet1);
                 JSONArray jsonArray = jsonObject.getJSONArray("list");
                 JSONObject json = jsonArray.getJSONObject(0);
@@ -72,8 +74,10 @@ public class CencList {
                     String getCencMag = json.getString("magnitude");
                     String getCencDate = json.getString("shockTime");
                     String getCencType = json.getString("infoTypeName");
+                    double getLatitude = json.getDouble("latitude");
+                    double getLongitude = json.getDouble("longitude");
                     QCMainWindow.jLabel21.setText(getCencType + " " + getCencRegion);
-                    QCMainWindow.jLabel22.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel22.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int.setIcon(image1);
@@ -129,8 +133,10 @@ public class CencList {
                     String getCencDepth = json1.getString("depth");
                     String getCencMag = json1.getString("magnitude");
                     String getCencDate = json1.getString("time");
+                    double getLatitude = json1.getDouble("latitude");
+                    double getLongitude = json1.getDouble("longitude");
                     QCMainWindow.jLabel25.setText(getCencRegion);
-                    QCMainWindow.jLabel26.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel26.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int1.setIcon(image1);
@@ -186,8 +192,10 @@ public class CencList {
                     String getCencDepth = json2.getString("depth");
                     String getCencMag = json2.getString("magnitude");
                     String getCencDate = json2.getString("time");
+                    double getLatitude = json2.getDouble("latitude");
+                    double getLongitude = json2.getDouble("longitude");
                     QCMainWindow.jLabel29.setText(getCencRegion);
-                    QCMainWindow.jLabel30.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel30.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int2.setIcon(image1);
@@ -243,8 +251,10 @@ public class CencList {
                     String getCencDepth = json3.getString("depth");
                     String getCencMag = json3.getString("magnitude");
                     String getCencDate = json3.getString("time");
+                    double getLatitude = json3.getDouble("latitude");
+                    double getLongitude = json3.getDouble("longitude");
                     QCMainWindow.jLabel33.setText(getCencRegion);
-                    QCMainWindow.jLabel34.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel34.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int3.setIcon(image1);
@@ -300,8 +310,10 @@ public class CencList {
                     String getCencDepth = json4.getString("depth");
                     String getCencMag = json4.getString("magnitude");
                     String getCencDate = json4.getString("time");
+                    double getLatitude = json4.getDouble("latitude");
+                    double getLongitude = json4.getDouble("longitude");
                     QCMainWindow.jLabel37.setText(getCencRegion);
-                    QCMainWindow.jLabel38.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel38.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int4.setIcon(image1);
@@ -357,8 +369,10 @@ public class CencList {
                     String getCencDepth = json5.getString("depth");
                     String getCencMag = json5.getString("magnitude");
                     String getCencDate = json5.getString("time");
+                    double getLatitude = json5.getDouble("latitude");
+                    double getLongitude = json5.getDouble("longitude");
                     QCMainWindow.jLabel41.setText(getCencRegion);
-                    QCMainWindow.jLabel42.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel42.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int5.setIcon(image1);
@@ -414,8 +428,10 @@ public class CencList {
                     String getCencDepth = json6.getString("depth");
                     String getCencMag = json6.getString("magnitude");
                     String getCencDate = json6.getString("time");
+                    double getLatitude = json6.getDouble("latitude");
+                    double getLongitude = json6.getDouble("longitude");
                     QCMainWindow.jLabel45.setText(getCencRegion);
-                    QCMainWindow.jLabel46.setText("震源深度: " + getCencDepth + "公里");
+                    QCMainWindow.jLabel46.setText("震源深度: " + getCencDepth + "公里" + " | 震中距: " + AppUtils.decimalFormat.format(DistanceUtil.getDistance(getLongitude,getLatitude,Double.parseDouble(AppUtils.getUserLng()),Double.parseDouble(AppUtils.getUserLat()))) + "Km");
                     double feel1 = AppUtils.calcMaxInt(Double.parseDouble(Objects.requireNonNull(getCencMag)), Double.parseDouble(Objects.requireNonNull(getCencDepth)));
                     if (feel1 >= 0.0 && feel1 < 1.5) {
                         QCMainWindow.Int6.setIcon(image1);

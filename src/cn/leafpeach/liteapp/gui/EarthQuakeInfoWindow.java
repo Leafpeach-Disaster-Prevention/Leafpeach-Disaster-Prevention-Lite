@@ -53,7 +53,7 @@ public class EarthQuakeInfoWindow extends JFrame {
         JSONObject jsonObject = JSON.parseObject(httpGet);
         JSONArray jsonArray = jsonObject.getJSONArray("data");
         JSONObject json = jsonArray.getJSONObject(index);
-        String url = "https://restapi.amap.com/v3/staticmap?location=" + json.getString("longitude") + "," + json.getString("latitude") + "&zoom=8&size=400*200&markers=mid,,A:" + json.getString("longitude") + "," + json.getString("latitude") + "&key=apikey已隐藏";
+        String url = "https://restapi.amap.com/v3/staticmap?location=" + json.getString("longitude") + "," + json.getString("latitude") + "&zoom=8&size=400*200&markers=mid,,A:" + json.getString("longitude") + "," + json.getString("latitude") + "&key=8c4f45980c7ab62552ae8229940d4162";
         URL url1 = new URL(url);
         InputStream inputStream = url1.openStream();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

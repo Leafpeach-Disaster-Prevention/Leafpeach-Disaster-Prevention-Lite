@@ -25,7 +25,7 @@ public class Connection {
 
     public static void IclConnect() {
         try {
-            lpClient = new LPClient(new URI("ws://地址隐藏"));
+            lpClient = new LPClient(new URI("ws://49.232.181.118:49133"));
             lpClient.connect();
             while (!lpClient.getReadyState().equals(WebSocket.READYSTATE.OPEN)) {
                 Thread.sleep(1000);

@@ -8,31 +8,27 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.FileUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 public class AppUtils {
-    // 程序用到的api地址已隐藏
-    static String CencUrl = "";
-    static String TimeUrl = "";
-    public static String IclUrl = "";
-    public static String CencUrl1 = "";
-    public static String RD3C0Url = "";
-    public static String RED68Url = "";
-    public static String JmaEEWUrl = "";
-    public static String scUrl = "";
-    public static String fjUrl = "";
-    static String JmaUrl = "";
-    static String versionUrl = "";
+    static String CencUrl = "https://api.wolfx.jp/cenc_eqlist.json";
+    public static String IclUrl = "http://api.leafpeach.cn/data/icl/data.json";
+    public static String CencUrl1 = "http://api.leafpeach.cn/data/cenc/data.json";
+    public static String RD3C0Url = "https://api.wolfx.jp/NM_EEDS_00.json";
+    public static String RED68Url = "https://api.wolfx.jp/CQ_BEB_00.json";
+    public static String JmaEEWUrl = "https://api.wolfx.jp/jma_eew.json";
+    public static String scUrl = "https://api.wolfx.jp/sc_eew.json";
+    public static String fjUrl = "https://api.wolfx.jp/fj_eew.json";
+    static String JmaUrl = "https://api.wolfx.jp/jma_eqlist.json";
+    static String versionUrl = "http://api.leafpeach.cn/data/liteapp/version.json";
     public static File startFile = new File("Files\\start.json");
     public static File tipsFile = new File("Files\\tips.json");
     public static File scFile = new File("Files\\sc.json");
@@ -51,9 +47,9 @@ public class AppUtils {
     }
 
     public static String getTime() {
-        String data = HttpUtils.sendGet(TimeUrl);
-        JSONObject jsonObject = JSON.parseObject(data);
-        return jsonObject.getString("time_utc8");
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return formatter.format(calendar.getTime());
     }
 
     public static String getVersionUrl() {
@@ -172,6 +168,12 @@ public class AppUtils {
         return null;
     }
 
+    public static void fileWriterMethod(String path,String content) throws IOException {
+        try (FileWriter fileWriter = new FileWriter(path)) {
+            fileWriter.append(content);
+        }
+    }
+
     public static String getHtmlResourceByUrl(String url,String encoding) {
         StringBuilder buffer = new StringBuilder();
         URL urlObj;
@@ -208,6 +210,13 @@ public class AppUtils {
         thread.start();
     }
 
+    public static void countDownTest() {
+        TaskTest tasktest = new TaskTest();
+        FutureTask<Integer> integerFutureTaskTest = new FutureTask<>(tasktest);
+        Thread thread = new Thread(integerFutureTaskTest);
+        thread.start();
+    }
+
     static class TaskS implements Callable<Integer> {
         @Override
         public Integer call() {
@@ -224,8 +233,32 @@ public class AppUtils {
                 Date date2 = DateUtil.parse(getTime());
                 long a = DateUtil.between(date1,date2, DateUnit.SECOND);
                 int Stime = (int) ((int) DistanceUtil.getTime(Double.parseDouble(getUserLng()), Double.parseDouble(getUserLat()), json.getDouble("longitude"), json.getDouble("latitude")) - a);
+                if (Stime < 0) {
+                    EQWarningWindow.jLabel3.setText("抵达");
+                }
                 // 倒计时
                 for (int i = Stime; i > -1; i--) {
+                    EQWarningWindow.jLabel3.setText(String.valueOf(i));
+                    if (i == 0) {
+                        soundUtil.playSound("sounds\\Arrive.wav");
+                        EQWarningWindow.jLabel3.setText("抵达");
+                    }
+                    Thread.sleep(1000L);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    static class TaskTest implements Callable<Integer> {
+        @Override
+        public Integer call() {
+            SoundUtil soundUtil = new SoundUtil();
+            try {
+                // 倒计时
+                for (int i = 15; i > -1; i--) {
                     EQWarningWindow.jLabel3.setText(String.valueOf(i));
                     if (i == 0) {
                         soundUtil.playSound("sounds\\Arrive.wav");

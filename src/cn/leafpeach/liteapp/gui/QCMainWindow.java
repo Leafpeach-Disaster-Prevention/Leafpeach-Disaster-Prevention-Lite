@@ -2,9 +2,9 @@ package cn.leafpeach.liteapp.gui;
 
 import cn.leafpeach.liteapp.QCMain;
 import cn.leafpeach.liteapp.app.AppTray;
+import cn.leafpeach.liteapp.app.eews.ICLEEW;
 import cn.leafpeach.liteapp.gui.lists.IclList;
-import cn.leafpeach.liteapp.gui.stations.RD3C0Window;
-import cn.leafpeach.liteapp.gui.stations.RED68Window;
+import cn.leafpeach.liteapp.gui.stations.StationsSelect;
 
 import javax.swing.*;
 import java.awt.*;
@@ -166,7 +166,7 @@ public class QCMainWindow extends JFrame {
 
         jTabbedPane.addTab("预警列表", jPanel1);
         jTabbedPane.addTab("台网列表", jPanel2);
-        jTabbedPane.addTab("JMA列表", jPanel3);
+        jTabbedPane.addTab("JMA详情列表", jPanel3);
         jTabbedPane.addTab("关于", jPanel4);
         jTabbedPane.addTab("其他功能", jPanel5);
 
@@ -1152,9 +1152,9 @@ public class QCMainWindow extends JFrame {
         jButton8.setFont(font1);
         jButton8.setBackground(Color.gray);
         jButton8.setForeground(Color.white);
-        jButton8.setText("RD3C0地震测站实时数据");
+        jButton8.setText("地震测站数据");
         jButton8.setBorderPainted(false);
-        jButton8.addActionListener(e -> new RD3C0Window());
+        jButton8.addActionListener(e -> new StationsSelect());
 
         jButton9.setSize(200,30);
         jButton9.setLocation(10,50);
@@ -1191,9 +1191,9 @@ public class QCMainWindow extends JFrame {
         jButton11.setFont(font1);
         jButton11.setBackground(Color.gray);
         jButton11.setForeground(Color.white);
-        jButton11.setText("RED68测站实时数据");
+        jButton11.setText("测试预警");
         jButton11.setBorderPainted(false);
-        jButton11.addActionListener(e -> new RED68Window());
+        jButton11.addActionListener(e -> ICLEEW.test());
 
         jPanel5.add(jButton8);
         jPanel5.add(jButton9);

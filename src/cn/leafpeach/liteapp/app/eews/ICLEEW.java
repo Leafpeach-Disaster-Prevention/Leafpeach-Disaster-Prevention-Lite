@@ -96,6 +96,13 @@ public class ICLEEW {
         new Timer().schedule(timerTask,0L,1000L);
     }
 
+    public static void test() {
+        // 显示测试预警窗口
+        AppTray.showMessage("地震预警发布", "现正发生有感地震,沉着冷静,迅速避险。远离悬挂物,不乘坐电梯,选择就近安全地点避险。");
+        new EQWarningWindow().display();
+        AppUtils.countDownTest();
+    }
+
     public static void reload() {
         timerTask.run();
     }
