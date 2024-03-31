@@ -20,8 +20,8 @@ import java.util.concurrent.FutureTask;
 
 public class AppUtils {
     static String CencUrl = "https://api.wolfx.jp/cenc_eqlist.json";
-    public static String IclUrl = "http://api.leafpeach.cn/data/icl/data.json";
-    public static String CencUrl1 = "http://api.leafpeach.cn/data/cenc/data.json";
+    public static String IclUrl = "";
+    public static String CencUrl1 = "";
     public static String RD3C0Url = "https://api.wolfx.jp/NM_EEDS_00.json";
     public static String RED68Url = "https://api.wolfx.jp/CQ_BEB_00.json";
     public static String JmaEEWUrl = "https://api.wolfx.jp/jma_eew.json";
